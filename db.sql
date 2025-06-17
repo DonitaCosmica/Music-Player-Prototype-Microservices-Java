@@ -5,12 +5,9 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ---
 CREATE TABLE Country (
     country_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name VARCHAR(255) NOT NULL UNIQUE, -- El nombre del país debe ser único
-    iso_code2 VARCHAR(2) NOT NULL UNIQUE, -- Código ISO 3166-1 alpha-2, debe ser único
-    iso_code3 VARCHAR(3) UNIQUE, -- Código ISO 3166-1 alpha-3, opcionalmente único
-    -- Otros campos útiles que podrías considerar:
-    -- population BIGINT,
-    -- continent VARCHAR(100)
+    name VARCHAR(255) NOT NULL UNIQUE,
+    iso_code2 VARCHAR(2) NOT NULL UNIQUE,
+    iso_code3 VARCHAR(3) UNIQUE,
 );
 CREATE INDEX idx_country_name ON Country (name);
 CREATE INDEX idx_country_iso2 ON Country (iso_code2);
@@ -22,13 +19,12 @@ CREATE TABLE Artist (
     artist_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     name VARCHAR(255) NOT NULL,
     bio TEXT,
-    -- REMOVED: country VARCHAR(100), -- Eliminado a favor de la FK a la tabla Country
-    country_id UUID, -- Nueva clave foránea a la tabla Country
+    country_id UUID,
     image_url VARCHAR(512),
-    FOREIGN KEY (country_id) REFERENCES Country(country_id) ON DELETE SET NULL -- Si se borra un país, los artistas de ese país no se borran, solo se desvinculan.
+    FOREIGN KEY (country_id) REFERENCES Country(country_id) ON DELETE SET NULL
 );
 CREATE INDEX idx_artist_name ON Artist (name);
-CREATE INDEX idx_artist_country_id ON Artist (country_id); -- Nuevo índice en la FK
+CREATE INDEX idx_artist_country_id ON Artist (country_id);
 
 ---
 -- Tabla Genre
