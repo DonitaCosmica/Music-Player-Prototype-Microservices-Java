@@ -39,4 +39,9 @@ public class SongDAO {
 
   public List<GenreDAO> getGenres() { return genres; }
   public void setGenres(List<GenreDAO> genres) { this.genres = genres; }
+  
+  @Override
+  public String toString() {
+    return title;
+  }
 }

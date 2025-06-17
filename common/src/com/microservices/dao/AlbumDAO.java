@@ -36,4 +36,9 @@ public class AlbumDAO {
 
   public List<SongDAO> getSongs() { return songs; }
   public void setSongs(List<SongDAO> songs) { this.songs = songs; }
+  
+  @Override
+  public String toString() {
+    return title;
+  }
 }

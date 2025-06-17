@@ -1,10 +1,10 @@
-package test;
+package main;
 
 import java.io.IOException;
 import server.Server;
 import utils.IsoCodeLookupService;
 
-public class Test {
+public class MainService {
   public static void main(String[] args) throws IOException {
     Server server = new Server();
     
@@ -14,4 +14,3 @@ public class Test {
     System.out.println("MusicService starting...");
   }
 }
-

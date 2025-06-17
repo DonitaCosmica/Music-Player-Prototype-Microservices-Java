@@ -39,7 +39,7 @@ public class Client {
       DataOutputStream serverOutput = new DataOutputStream(socket.getOutputStream());
       DataInputStream serverInput = new DataInputStream(socket.getInputStream())
     ) {
-      System.out.println("--- Connected to Music Service Server ---");
+      /*System.out.println("--- Connected to Music Service Server ---");
 
       // --- Step 1: Create and retrieve Country ---
       // We need the Country's actual ID from the DB to link to Artist
@@ -119,7 +119,7 @@ public class Client {
       song3.setArtists(Collections.singletonList(artist));
       song3.setGenres(Collections.singletonList(rockGenre));
 
-      sendCreateRequest(serverOutput, serverInput, "/song", song3, SongDAO.class);
+      sendCreateRequest(serverOutput, serverInput, "/song", song3, SongDAO.class);*/
 
       // --- Step 6: Get all Songs to verify ---
       System.out.println("\n--- Getting All Songs ---");

@@ -13,4 +13,9 @@ public class CountryDAO {
 
   public String getIsoCode2() { return isoCode2; }
   public void setIsoCode2(String isoCode2) { this.isoCode2 = isoCode2; }
+  
+  @Override
+  public String toString() {
+    return name;
+  }
 }

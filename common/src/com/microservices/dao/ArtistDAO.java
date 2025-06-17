@@ -20,5 +20,10 @@ public class ArtistDAO {
   public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
   
   public CountryDAO getOriginCountry() { return originCountry; }
-  public void setOriginCountry(CountryDAO originCountry) { this.originCountry = originCountry; } 
+  public void setOriginCountry(CountryDAO originCountry) { this.originCountry = originCountry; }
+  
+  @Override
+  public String toString() {
+    return name;
+  }
 }
